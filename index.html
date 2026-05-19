@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
-<head><meta name="google-site-verification" content="RrRl5C4kLcfx_7AyzN1Jjck_a_Lo3NDog7gaTWxWU5g" /></meta>
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kraxx — Claim Your Subdomain Now</title>
@@ -8,7 +8,7 @@
 <meta name="keywords" content="subdomain gratis, domain gratis indonesia, kraxx.my.id, free subdomain">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="Kraxx — Claim Your Subdomain Now">
-<meta property="og:description" content="Subdomain gratis Indonesia | kraxx.my.id. Daftarkan subdomainmu sekarang — cocok untuk website, portofolio, project dev, dan blog. Cepat, gratis, tanpa biaya tersembunyi.">
+<meta property="og:description" content="Subdomain gratis Indonesia | kraxx.my.id. Daftarkan subdomainmu sekarang.">
 <meta property="og:url" content="https://kraxx.my.id">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://kraxx.my.id">
@@ -19,15 +19,24 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg: #08080f;
-    --surface: #0f0f1a;
-    --border: rgba(255,255,255,0.07);
-    --accent: #7bffc4;
-    --accent2: #c47bff;
-    --accent3: #ffb347;
-    --text: #f0f0f5;
-    --muted: #6b6b80;
-    --glow: rgba(123,255,196,0.15);
+    --bg: #07070e;
+    --bg2: #0c0c18;
+    --surface: #10101e;
+    --surface2: #14142a;
+    --border: rgba(255,255,255,0.06);
+    --border2: rgba(255,255,255,0.1);
+    --accent: #6effc2;
+    --accent-dim: rgba(110,255,194,0.12);
+    --accent-glow: rgba(110,255,194,0.25);
+    --accent2: #b96eff;
+    --accent2-dim: rgba(185,110,255,0.12);
+    --accent3: #ffb84d;
+    --accent3-dim: rgba(255,184,77,0.12);
+    --blue: #6ebaff;
+    --blue-dim: rgba(110,186,255,0.12);
+    --text: #eeeef5;
+    --text2: #aaaabd;
+    --muted: #5a5a75;
   }
 
   html { scroll-behavior: smooth; }
@@ -38,28 +47,39 @@
     font-family: 'DM Mono', monospace;
     min-height: 100vh;
     overflow-x: hidden;
+    line-height: 1.5;
   }
 
+  /* Grid bg */
   body::before {
     content: '';
     position: fixed;
     inset: 0;
     background-image:
-      linear-gradient(rgba(123,255,196,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(123,255,196,0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
+      linear-gradient(rgba(110,255,194,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(110,255,194,0.025) 1px, transparent 1px);
+    background-size: 48px 48px;
     pointer-events: none;
     z-index: 0;
   }
 
-  body::after {
-    content: '';
+  /* Glow orbs */
+  .orb {
     position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    border-radius: 50%;
+    filter: blur(100px);
     pointer-events: none;
     z-index: 0;
-    opacity: 0.4;
+  }
+  .orb1 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(110,255,194,0.07), transparent 70%);
+    top: -200px; left: -150px;
+  }
+  .orb2 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(185,110,255,0.06), transparent 70%);
+    bottom: -100px; right: -100px;
   }
 
   .wrapper {
@@ -67,299 +87,266 @@
     z-index: 1;
     max-width: 560px;
     margin: 0 auto;
-    padding: 60px 20px 80px;
+    padding: 56px 22px 80px;
   }
 
-  /* SAWERIA */
+  /* ─── SAWERIA ─── */
   .saweria-bar {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 24px;
-    animation: fadeUp 0.5s ease both;
+    margin-bottom: 28px;
+    animation: fadeUp 0.45s ease both;
   }
 
   .saweria-btn {
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    background: rgba(255,179,71,0.1);
-    border: 1px solid rgba(255,179,71,0.25);
+    background: var(--accent3-dim);
+    border: 1px solid rgba(255,184,77,0.22);
     border-radius: 999px;
-    padding: 8px 16px;
+    padding: 8px 18px;
     font-family: 'Syne', sans-serif;
     font-weight: 600;
     font-size: 12px;
     color: var(--accent3);
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.03em;
   }
 
   .saweria-btn:hover {
-    background: rgba(255,179,71,0.18);
-    border-color: rgba(255,179,71,0.45);
+    background: rgba(255,184,77,0.2);
+    border-color: rgba(255,184,77,0.45);
     transform: translateY(-1px);
-    box-shadow: 0 0 16px rgba(255,179,71,0.2);
+    box-shadow: 0 4px 20px rgba(255,184,77,0.18);
   }
 
-  /* HEADER */
+  /* ─── HEADER ─── */
   .header {
     text-align: center;
-    margin-bottom: 48px;
-    animation: fadeUp 0.6s ease both;
+    margin-bottom: 44px;
+    animation: fadeUp 0.55s ease both;
   }
 
   .logo-wrap {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
+    gap: 11px;
+    margin-bottom: 16px;
+  }
+
+  .logo-img {
+    width: 46px; height: 46px;
+    border-radius: 14px;
+    box-shadow: 0 0 0 1px var(--border2), 0 8px 24px rgba(0,0,0,0.4);
   }
 
   .logo-text {
     font-family: 'Syne', sans-serif;
     font-weight: 800;
-    font-size: 22px;
+    font-size: 24px;
     letter-spacing: -0.5px;
+    color: var(--text);
   }
 
   .logo-text span { color: var(--accent); }
 
   .tagline {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--muted);
-    letter-spacing: 0.05em;
-    margin-bottom: 12px;
+    letter-spacing: 0.06em;
+    margin-bottom: 14px;
   }
 
   .badge {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    background: rgba(123,255,196,0.08);
-    border: 1px solid rgba(123,255,196,0.2);
+    gap: 7px;
+    background: var(--accent-dim);
+    border: 1px solid rgba(110,255,194,0.18);
     border-radius: 999px;
-    padding: 5px 14px;
+    padding: 6px 16px;
     font-size: 11px;
     color: var(--accent);
-    letter-spacing: 0.08em;
+    letter-spacing: 0.09em;
     text-transform: uppercase;
+    font-weight: 500;
   }
 
-  .badge::before {
-    content: '';
+  .badge-dot {
     width: 6px; height: 6px;
     background: var(--accent);
     border-radius: 50%;
-    animation: blink 1.4s ease infinite;
+    animation: blink 1.6s ease infinite;
+    flex-shrink: 0;
   }
 
-  /* HERO CARD */
+  /* ─── HERO CARD ─── */
   .hero-card {
-    background: linear-gradient(135deg, rgba(123,255,196,0.06), rgba(196,123,255,0.06));
-    border: 1px solid rgba(123,255,196,0.15);
-    border-radius: 20px;
-    padding: 32px;
-    margin-bottom: 32px;
+    background: linear-gradient(145deg, rgba(110,255,194,0.05) 0%, rgba(185,110,255,0.04) 100%);
+    border: 1px solid rgba(110,255,194,0.12);
+    border-radius: 22px;
+    padding: 34px 30px;
+    margin-bottom: 28px;
     text-align: center;
     position: relative;
     overflow: hidden;
-    animation: fadeUp 0.6s 0.1s ease both;
+    animation: fadeUp 0.6s 0.08s ease both;
   }
 
   .hero-card::before {
     content: '';
     position: absolute;
-    top: -60px; left: 50%;
+    top: -80px; left: 50%;
     transform: translateX(-50%);
-    width: 200px; height: 200px;
-    background: radial-gradient(circle, rgba(123,255,196,0.12), transparent 70%);
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(110,255,194,0.1), transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 50%);
     pointer-events: none;
   }
 
   .hero-title {
     font-family: 'Syne', sans-serif;
     font-weight: 800;
-    font-size: 28px;
-    line-height: 1.15;
-    margin-bottom: 12px;
-    letter-spacing: -0.5px;
+    font-size: 30px;
+    line-height: 1.18;
+    margin-bottom: 14px;
+    letter-spacing: -0.6px;
+    position: relative;
+    z-index: 1;
   }
 
   .hero-title .highlight { color: var(--accent); }
 
   .hero-subtitle {
     font-size: 13px;
-    color: var(--muted);
-    line-height: 1.7;
-    margin-bottom: 24px;
+    color: var(--text2);
+    line-height: 1.75;
+    margin-bottom: 26px;
+    position: relative;
+    z-index: 1;
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  /* DOMAIN DEMO */
+  /* ─── DOMAIN DEMO ─── */
   .domain-demo {
     background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 16px 20px;
-    margin-bottom: 20px;
+    border: 1px solid var(--border2);
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-bottom: 22px;
     text-align: left;
+    position: relative;
+    z-index: 1;
   }
 
   .domain-demo-label {
     font-size: 10px;
     color: var(--muted);
-    letter-spacing: 0.1em;
+    letter-spacing: 0.11em;
     text-transform: uppercase;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
   }
 
   .domain-row {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 6px;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
     font-size: 13px;
   }
 
-  .domain-row:last-child { margin-bottom: 0; }
+  .domain-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .domain-row:first-of-type { padding-top: 0; }
 
-  .domain-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-  .dot-main { background: var(--accent); box-shadow: 0 0 8px var(--accent); }
-  .dot-sub  { background: var(--accent2); }
-  .dot-sub2 { background: var(--accent3); }
-  .dot-sub3 { background: #7bb8ff; }
-
-  .domain-name { font-family: 'DM Mono', monospace; font-size: 13px; }
-  .domain-name .sub  { color: var(--accent2); }
-  .domain-name .root { color: var(--muted); }
-
-  .domain-tag {
-    margin-left: auto;
-    font-size: 10px;
-    padding: 2px 8px;
-    border-radius: 999px;
-    background: rgba(123,255,196,0.08);
-    color: var(--accent);
-    border: 1px solid rgba(123,255,196,0.15);
+  .domain-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
   }
 
-  .tag-free { background: rgba(196,123,255,0.08); color: var(--accent2); border-color: rgba(196,123,255,0.15); }
+  .dot-main  { background: var(--accent); box-shadow: 0 0 8px rgba(110,255,194,0.6); }
+  .dot-sub   { background: var(--accent2); }
+  .dot-sub2  { background: var(--accent3); }
+  .dot-sub3  { background: var(--blue); }
 
-  /* CTA BUTTON */
+  .domain-name { font-family: 'DM Mono', monospace; font-size: 13px; flex: 1; }
+  .domain-name .sub  { color: var(--accent2); }
+  .domain-name .root { color: var(--text2); }
+  .domain-name .root-main { color: var(--accent); }
+
+  .domain-tag {
+    font-size: 10px;
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+
+  .tag-main { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(110,255,194,0.15); }
+  .tag-free { background: var(--accent2-dim); color: var(--accent2); border: 1px solid rgba(185,110,255,0.15); }
+
+  /* ─── CTA ─── */
   .cta-btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    gap: 9px;
     background: var(--accent);
-    color: #08080f;
+    color: #07070e;
     font-family: 'Syne', sans-serif;
     font-weight: 700;
     font-size: 14px;
-    padding: 14px 28px;
-    border-radius: 12px;
+    padding: 15px 28px;
+    border-radius: 13px;
     text-decoration: none;
     border: none;
     cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 0 24px rgba(123,255,196,0.3);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 30px rgba(110,255,194,0.28), 0 2px 8px rgba(0,0,0,0.3);
     letter-spacing: 0.02em;
     width: 100%;
-    justify-content: center;
+    position: relative;
+    z-index: 1;
   }
 
   .cta-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 40px rgba(123,255,196,0.45);
-    background: #90ffd0;
+    box-shadow: 0 0 48px rgba(110,255,194,0.42), 0 4px 16px rgba(0,0,0,0.4);
+    background: #82ffd0;
   }
 
-  .cta-btn svg { width: 16px; height: 16px; }
+  .cta-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
 
-  /* SECTION LABEL */
+  /* ─── SECTION LABEL ─── */
   .section-label {
     font-size: 10px;
     color: var(--muted);
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     margin-bottom: 14px;
-    animation: fadeUp 0.6s 0.2s ease both;
   }
 
-  /* LINKS */
-  .links-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 32px;
-  }
-
-  .link-card {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 16px 20px;
-    text-decoration: none;
-    color: var(--text);
-    transition: all 0.2s ease;
-    cursor: pointer;
-    animation: fadeUp 0.5s ease both;
-  }
-
-  .link-card:nth-child(1) { animation-delay: 0.25s; }
-  .link-card:nth-child(2) { animation-delay: 0.32s; }
-  .link-card:nth-child(3) { animation-delay: 0.39s; }
-
-  .link-card:hover {
-    border-color: rgba(123,255,196,0.25);
-    background: rgba(123,255,196,0.04);
-    transform: translateX(4px);
-  }
-
-  .link-icon {
-    width: 40px; height: 40px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    flex-shrink: 0;
-  }
-
-  .icon-wa { background: rgba(123,255,150,0.12); }
-  .icon-dc { background: rgba(123,100,255,0.12); }
-  .icon-ig { background: rgba(255,100,150,0.12); }
-
-  .link-info { flex: 1; }
-
-  .link-title {
-    font-family: 'Syne', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    margin-bottom: 2px;
-  }
-
-  .link-desc { font-size: 11px; color: var(--muted); }
-
-  .link-arrow {
-    color: var(--muted);
-    font-size: 16px;
-    transition: transform 0.2s ease;
-  }
-
-  .link-card:hover .link-arrow {
-    transform: translateX(3px);
-    color: var(--accent);
-  }
-
-  /* HOW IT WORKS */
+  /* ─── HOW IT WORKS ─── */
   .how-section {
-    margin-bottom: 32px;
-    animation: fadeUp 0.6s 0.5s ease both;
+    margin-bottom: 28px;
+    animation: fadeUp 0.6s 0.22s ease both;
   }
 
-  .steps { display: flex; flex-direction: column; gap: 12px; }
+  .steps { display: flex; flex-direction: column; gap: 10px; }
 
   .step {
     display: flex;
@@ -369,13 +356,19 @@
     border: 1px solid var(--border);
     border-radius: 14px;
     padding: 16px 18px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .step:hover {
+    border-color: rgba(110,255,194,0.15);
+    background: rgba(110,255,194,0.03);
   }
 
   .step-num {
-    width: 28px; height: 28px;
-    border-radius: 8px;
-    background: rgba(123,255,196,0.1);
-    border: 1px solid rgba(123,255,196,0.2);
+    width: 30px; height: 30px;
+    border-radius: 9px;
+    background: var(--accent-dim);
+    border: 1px solid rgba(110,255,194,0.18);
     color: var(--accent);
     font-family: 'Syne', sans-serif;
     font-weight: 700;
@@ -386,13 +379,20 @@
     flex-shrink: 0;
   }
 
-  .step-text { font-size: 13px; line-height: 1.6; color: var(--muted); }
-  .step-text strong { color: var(--text); font-weight: 500; }
+  .step-body { flex: 1; }
+  .step-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .step-desc { font-size: 12px; color: var(--text2); line-height: 1.65; }
 
-  /* EXAMPLES */
+  /* ─── EXAMPLES ─── */
   .examples-section {
-    margin-bottom: 32px;
-    animation: fadeUp 0.6s 0.6s ease both;
+    margin-bottom: 28px;
+    animation: fadeUp 0.6s 0.3s ease both;
   }
 
   .example-chips { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -400,61 +400,145 @@
   .chip {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 7px 12px;
     font-size: 12px;
-    color: var(--muted);
-    transition: all 0.15s ease;
+    color: var(--text2);
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+    cursor: default;
   }
 
   .chip:hover {
-    border-color: rgba(196,123,255,0.3);
+    border-color: rgba(185,110,255,0.28);
     color: var(--accent2);
-    background: rgba(196,123,255,0.05);
+    background: var(--accent2-dim);
   }
 
-  .chip-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent2); }
+  .chip-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent2); flex-shrink: 0; }
 
-  /* FOOTER */
+  /* ─── LINKS ─── */
+  .links-section {
+    margin-bottom: 28px;
+    animation: fadeUp 0.6s 0.38s ease both;
+  }
+
+  .links-grid { display: flex; flex-direction: column; gap: 10px; }
+
+  .link-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px 20px;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  }
+
+  .link-card:hover {
+    border-color: rgba(110,255,194,0.22);
+    background: rgba(110,255,194,0.03);
+    transform: translateX(5px);
+  }
+
+  .link-icon {
+    width: 42px; height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    flex-shrink: 0;
+  }
+
+  .icon-wa { background: rgba(110,255,150,0.1); }
+  .icon-dc { background: rgba(110,100,255,0.1); }
+  .icon-ig { background: rgba(255,100,150,0.1); }
+
+  .link-info { flex: 1; min-width: 0; }
+
+  .link-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 3px;
+    color: var(--text);
+  }
+
+  .link-desc { font-size: 11px; color: var(--muted); }
+
+  .link-arrow {
+    color: var(--muted);
+    font-size: 16px;
+    transition: transform 0.2s, color 0.2s;
+    flex-shrink: 0;
+  }
+
+  .link-card:hover .link-arrow {
+    transform: translateX(4px);
+    color: var(--accent);
+  }
+
+  /* ─── FOOTER ─── */
   .footer {
     text-align: center;
     font-size: 12px;
     color: var(--muted);
-    animation: fadeUp 0.6s 0.7s ease both;
+    animation: fadeUp 0.6s 0.46s ease both;
+    padding-top: 8px;
   }
 
-  .footer a { color: var(--accent); text-decoration: none; }
+  .footer a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
 
-  /* TOAST */
+  .footer a:hover { opacity: 0.75; }
+
+  /* ─── TOAST ─── */
   .toast {
     position: fixed;
     bottom: 32px;
     left: 50%;
-    transform: translateX(-50%) translateY(80px);
-    background: var(--accent);
-    color: #08080f;
+    transform: translateX(-50%) translateY(90px);
+    background: var(--surface);
+    border: 1px solid var(--border2);
+    color: var(--text);
     font-family: 'Syne', sans-serif;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 13px;
-    padding: 12px 24px;
-    border-radius: 12px;
-    z-index: 100;
-    transition: transform 0.3s ease;
+    padding: 13px 24px;
+    border-radius: 14px;
+    z-index: 300;
+    transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s ease;
     pointer-events: none;
     white-space: nowrap;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    opacity: 0;
   }
 
-  .toast.show { transform: translateX(-50%) translateY(0); }
+  .toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
 
-  /* MODAL */
+  .toast.success { border-color: rgba(110,255,194,0.3); color: var(--accent); }
+  .toast.error   { border-color: rgba(255,100,100,0.3); color: #ff7070; }
+  .toast.warn    { border-color: rgba(255,184,77,0.3); color: var(--accent3); }
+
+  /* ─── MODAL ─── */
   .modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(8,8,15,0.85);
-    backdrop-filter: blur(8px);
+    background: rgba(7,7,14,0.88);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -465,154 +549,303 @@
     transition: opacity 0.25s ease;
   }
 
-  .modal-overlay.open { opacity: 1; pointer-events: all; }
+  .modal-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+  }
 
   .modal {
     background: var(--surface);
-    border: 1px solid rgba(123,255,196,0.15);
-    border-radius: 20px;
-    padding: 32px;
+    border: 1px solid rgba(110,255,194,0.14);
+    border-radius: 22px;
+    padding: 32px 30px;
     max-width: 440px;
     width: 100%;
-    transform: translateY(20px);
-    transition: transform 0.25s ease;
+    transform: translateY(24px) scale(0.98);
+    transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1);
+    box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+    position: relative;
+    overflow: hidden;
   }
 
-  .modal-overlay.open .modal { transform: translateY(0); }
+  .modal::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(185,110,255,0.07), transparent 70%);
+    pointer-events: none;
+  }
+
+  .modal-overlay.open .modal {
+    transform: translateY(0) scale(1);
+  }
+
+  .modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+  }
 
   .modal-title {
     font-family: 'Syne', sans-serif;
     font-weight: 800;
-    font-size: 20px;
-    margin-bottom: 8px;
+    font-size: 21px;
+    line-height: 1.2;
+    color: var(--text);
+  }
+
+  .modal-close {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+    flex-shrink: 0;
+  }
+
+  .modal-close:hover {
+    border-color: var(--border2);
+    color: var(--text);
+    background: rgba(255,255,255,0.04);
   }
 
   .modal-sub {
     font-size: 12px;
-    color: var(--muted);
-    margin-bottom: 24px;
-    line-height: 1.6;
+    color: var(--text2);
+    margin-bottom: 26px;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
   }
 
-  .input-group { margin-bottom: 16px; }
+  .input-group {
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
 
   .input-label {
-    font-size: 11px;
+    font-size: 10px;
     color: var(--muted);
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     margin-bottom: 8px;
     display: block;
+    font-weight: 500;
   }
 
   .input-wrap {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 10px;
+    border: 1px solid var(--border2);
+    border-radius: 11px;
     overflow: hidden;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
   }
 
-  .input-wrap:focus-within { border-color: rgba(123,255,196,0.3); }
+  .input-wrap:focus-within {
+    border-color: rgba(110,255,194,0.32);
+    box-shadow: 0 0 0 3px rgba(110,255,194,0.06);
+  }
 
-  .input-prefix {
-    padding: 12px 14px;
-    font-size: 13px;
+  .input-prefix, .input-suffix {
+    padding: 0 14px;
+    font-size: 12px;
     color: var(--muted);
-    border-right: 1px solid var(--border);
+    display: flex;
+    align-items: center;
     white-space: nowrap;
+    background: rgba(255,255,255,0.02);
+    flex-shrink: 0;
   }
+
+  .input-prefix { border-right: 1px solid var(--border); }
+  .input-suffix { border-left: 1px solid var(--border); color: var(--accent); }
 
   .input-field {
     flex: 1;
     background: transparent;
     border: none;
     outline: none;
-    padding: 12px 14px;
+    padding: 13px 14px;
     font-family: 'DM Mono', monospace;
     font-size: 13px;
     color: var(--text);
+    min-width: 0;
   }
 
   .input-field::placeholder { color: var(--muted); }
 
-  .input-suffix {
-    padding: 12px 14px;
+  /* Textarea */
+  .textarea-wrap {
+    background: var(--bg);
+    border: 1px solid var(--border2);
+    border-radius: 11px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    overflow: hidden;
+  }
+
+  .textarea-wrap:focus-within {
+    border-color: rgba(110,255,194,0.32);
+    box-shadow: 0 0 0 3px rgba(110,255,194,0.06);
+  }
+
+  .input-textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 13px 14px;
+    font-family: 'DM Mono', monospace;
     font-size: 13px;
-    color: var(--accent);
+    color: var(--text);
+    resize: vertical;
+    min-height: 90px;
+    display: block;
+  }
+
+  .input-textarea::placeholder { color: var(--muted); }
+
+  .modal-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 20px 0;
+    position: relative;
+    z-index: 1;
   }
 
   .modal-actions {
     display: flex;
     gap: 10px;
-    margin-top: 24px;
+    position: relative;
+    z-index: 1;
   }
 
   .btn-cancel {
     flex: 1;
-    padding: 12px;
-    border-radius: 10px;
+    padding: 13px;
+    border-radius: 11px;
     border: 1px solid var(--border);
     background: transparent;
-    color: var(--muted);
+    color: var(--text2);
     font-family: 'DM Mono', monospace;
     font-size: 13px;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
   }
 
-  .btn-cancel:hover { border-color: rgba(255,255,255,0.15); color: var(--text); }
+  .btn-cancel:hover {
+    border-color: var(--border2);
+    color: var(--text);
+    background: rgba(255,255,255,0.03);
+  }
 
   .btn-submit {
     flex: 2;
-    padding: 12px;
-    border-radius: 10px;
+    padding: 13px;
+    border-radius: 11px;
     border: none;
     background: var(--accent);
-    color: #08080f;
+    color: #07070e;
     font-family: 'Syne', sans-serif;
     font-weight: 700;
     font-size: 14px;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 20px rgba(110,255,194,0.25);
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
   }
 
-  .btn-submit:hover { background: #90ffd0; }
+  .btn-submit:hover:not(:disabled) {
+    background: #82ffd0;
+    transform: translateY(-1px);
+    box-shadow: 0 0 32px rgba(110,255,194,0.38);
+  }
 
+  .btn-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* Spinner */
+  .spinner {
+    width: 14px; height: 14px;
+    border: 2px solid rgba(7,7,14,0.3);
+    border-top-color: #07070e;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    display: none;
+  }
+
+  .btn-submit.loading .spinner { display: block; }
+  .btn-submit.loading .btn-text { display: none; }
+
+  /* ─── ANIMATIONS ─── */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(18px); }
+    from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
   @keyframes blink {
     0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
+    50% { opacity: 0.25; }
   }
 
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* ─── SCROLLBAR ─── */
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
-  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 400px) {
+    .wrapper { padding: 40px 16px 64px; }
+    .hero-title { font-size: 24px; }
+    .modal { padding: 24px 20px; }
+    .hero-card { padding: 26px 20px; }
+  }
 </style>
 </head>
 <body>
+
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
 
 <div class="wrapper">
 
   <!-- SAWERIA -->
   <div class="saweria-bar">
-    <a href="https://saweria.co/eliteclub" target="_blank" class="saweria-btn">☕ Dukung Kraxx</a>
+    <a href="https://advance.kraxx.my.id" target="_blank" rel="noopener" class="saweria-btn">
+      ☕ Dukung Kraxx
+    </a>
   </div>
 
   <!-- HEADER -->
   <div class="header">
     <div class="logo-wrap">
-      <img src="https://i.ibb.co.com/MDPFncKx/file-00000000ea3c7208b90cc3d1c1726957.png" style="width:44px;height:44px;border-radius:12px;" alt="Kraxx logo">
+      <img src="https://i.ibb.co.com/MDPFncKx/file-00000000ea3c7208b90cc3d1c1726957.png" class="logo-img" alt="Kraxx logo">
       <div class="logo-text">kraxx<span>.my.id</span></div>
     </div>
     <p class="tagline">domain lokal, identitas digital kamu</p>
-    <span class="badge">✦ Subdomain Gratis — Terbatas!</span>
+    <span class="badge"><span class="badge-dot"></span>Subdomain Gratis · Terbatas</span>
   </div>
 
   <!-- HERO CARD -->
@@ -629,8 +862,8 @@
       <div class="domain-demo-label">Contoh subdomain aktif</div>
       <div class="domain-row">
         <span class="domain-dot dot-main"></span>
-        <span class="domain-name"><span class="root">kraxx.my.id</span></span>
-        <span class="domain-tag">Main</span>
+        <span class="domain-name"><span class="root-main">kraxx.my.id</span></span>
+        <span class="domain-tag tag-main">Main</span>
       </div>
       <div class="domain-row">
         <span class="domain-dot dot-sub"></span>
@@ -650,7 +883,9 @@
     </div>
 
     <button class="cta-btn" onclick="openModal()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
       Request Subdomainku Sekarang
     </button>
   </div>
@@ -661,15 +896,24 @@
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
-        <div class="step-text"><strong>Pilih nama subdomainmu</strong> — bebas, asal belum dipakai orang lain dan sopan ya!</div>
+        <div class="step-body">
+          <div class="step-title">Pilih nama subdomainmu</div>
+          <div class="step-desc">Bebas, asal belum dipakai orang lain dan tetap sopan ya!</div>
+        </div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
-        <div class="step-text"><strong>Kirim request</strong> lewat WhatsApp atau Discord dengan nama subdomain + IP/target-mu.</div>
+        <div class="step-body">
+          <div class="step-title">Kirim request</div>
+          <div class="step-desc">Isi form dengan nama subdomain, target, dan pesan kamu. Bisa juga via WhatsApp atau Discord.</div>
+        </div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
-        <div class="step-text"><strong>Subdomain aktif</strong> dalam 1–24 jam, tinggal pakai! Gratis selamanya selama layanan aktif.</div>
+        <div class="step-body">
+          <div class="step-title">Subdomain aktif!</div>
+          <div class="step-desc">Proses dalam 1–24 jam. Gratis selamanya selama layanan berjalan.</div>
+        </div>
       </div>
     </div>
   </div>
@@ -690,37 +934,39 @@
   </div>
 
   <!-- LINKS -->
-  <p class="section-label">// hubungi kami</p>
-  <div class="links-grid">
-    <a href="https://wa.me/6285122975498" target="_blank" class="link-card">
-      <div class="link-icon icon-wa">💬</div>
-      <div class="link-info">
-        <div class="link-title">WhatsApp</div>
-        <div class="link-desc">Request via WA, lebih gampang</div>
-      </div>
-      <span class="link-arrow">→</span>
-    </a>
-    <a href="https://discord.gg/6qYhyYJwF" target="_blank" class="link-card">
-      <div class="link-icon icon-dc">🎮</div>
-      <div class="link-info">
-        <div class="link-title">Discord Server</div>
-        <div class="link-desc">Komunitas kraxx.my.id</div>
-      </div>
-      <span class="link-arrow">→</span>
-    </a>
-    <a href="https://instagram.com/bustanullabibalwasi" target="_blank" class="link-card">
-      <div class="link-icon icon-ig">📸</div>
-      <div class="link-info">
-        <div class="link-title">Instagram</div>
-        <div class="link-desc">@bustanullabibalwasi</div>
-      </div>
-      <span class="link-arrow">→</span>
-    </a>
+  <div class="links-section">
+    <p class="section-label">// hubungi kami</p>
+    <div class="links-grid">
+      <a href="https://wa.me/6285122975498" target="_blank" rel="noopener" class="link-card">
+        <div class="link-icon icon-wa">💬</div>
+        <div class="link-info">
+          <div class="link-title">WhatsApp</div>
+          <div class="link-desc">Request via WA, lebih gampang</div>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://discord.gg/6qYhyYJwF" target="_blank" rel="noopener" class="link-card">
+        <div class="link-icon icon-dc">🎮</div>
+        <div class="link-info">
+          <div class="link-title">Discord Server</div>
+          <div class="link-desc">Komunitas kraxx.my.id</div>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://instagram.com/bustanullabibalwasi" target="_blank" rel="noopener" class="link-card">
+        <div class="link-icon icon-ig">📸</div>
+        <div class="link-info">
+          <div class="link-title">Instagram</div>
+          <div class="link-desc">@bustanullabibalwasi</div>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
+    </div>
   </div>
 
   <!-- FOOTER -->
   <div class="footer">
-    <p>Made with ♥ by <a href="#">kraxx.my.id</a> · Jakarta, Indonesia</p>
+    <p>Made with ♥ by <a href="https://kraxx.my.id">kraxx.my.id</a> · Jakarta, Indonesia</p>
   </div>
 
 </div>
@@ -731,38 +977,45 @@
 <!-- MODAL -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
   <div class="modal" id="modal">
-    <div class="modal-title">Request Subdomain 🚀</div>
-    <div class="modal-sub">
-      Isi form di bawah ini, nanti kami proses dalam 1–24 jam.
-      Subdomain gratis, no hidden fee!
+    <div class="modal-header">
+      <div class="modal-title">Request Subdomain 🚀</div>
+      <button class="modal-close" onclick="closeModal()" aria-label="Tutup">✕</button>
     </div>
+    <p class="modal-sub">
+      Isi form di bawah ini — kami proses dalam 1–24 jam. Gratis, no hidden fee!
+    </p>
 
     <div class="input-group">
-      <label class="input-label">Nama Subdomain</label>
+      <label class="input-label" for="subInput">Nama Subdomain</label>
       <div class="input-wrap">
-        <input class="input-field" id="subInput" type="text" placeholder="namasubdomainmu">
+        <input class="input-field" id="subInput" type="text" placeholder="namasubdomainmu" autocomplete="off" spellcheck="false">
         <span class="input-suffix">.kraxx.my.id</span>
       </div>
     </div>
 
     <div class="input-group">
-      <label class="input-label">Arahkan ke (IP / URL)</label>
+      <label class="input-label" for="contactInput">Kontak (Telegram / WA)</label>
       <div class="input-wrap">
-        <input class="input-field" id="targetInput" type="text" placeholder="123.123.123.123 atau https://...">
+        <span class="input-prefix">@</span>
+        <input class="input-field" id="contactInput" type="text" placeholder="username atau nomor HP">
       </div>
     </div>
 
     <div class="input-group">
-      <label class="input-label">Kontak (Telegram / WA)</label>
-      <div class="input-wrap">
-        <span class="input-prefix">@</span>
-        <input class="input-field" id="contactInput" type="text" placeholder="username / nomor HP">
+      <label class="input-label" for="messageInput">Pesan / Keterangan</label>
+      <div class="textarea-wrap">
+        <textarea class="input-textarea" id="messageInput" placeholder="Ceritain keperluanmu — mau diarahkan ke IP berapa, URL apa, atau info tambahan lainnya…"></textarea>
       </div>
     </div>
 
+    <div class="modal-divider"></div>
+
     <div class="modal-actions">
       <button class="btn-cancel" onclick="closeModal()">Batal</button>
-      <button class="btn-submit" onclick="submitRequest()">Kirim Request ✦</button>
+      <button class="btn-submit" id="submitBtn" onclick="submitRequest()">
+        <span class="spinner"></span>
+        <span class="btn-text">Kirim Request ✦</span>
+      </button>
     </div>
   </div>
 </div>
@@ -770,6 +1023,7 @@
 <script>
   function openModal() {
     document.getElementById('modalOverlay').classList.add('open');
+    setTimeout(() => document.getElementById('subInput').focus(), 300);
   }
 
   function closeModal() {
@@ -780,25 +1034,42 @@
     if (e.target === document.getElementById('modalOverlay')) closeModal();
   }
 
-  function showToast(msg) {
+  // Close on Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  function showToast(msg, type = 'success') {
     const t = document.getElementById('toast');
     t.textContent = msg;
+    t.className = 'toast ' + type;
     t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 2500);
+    setTimeout(() => t.classList.remove('show'), 3000);
   }
 
   async function submitRequest() {
-    const sub = document.getElementById('subInput').value.trim();
-    const target = document.getElementById('targetInput').value.trim();
+    const sub     = document.getElementById('subInput').value.trim();
     const contact = document.getElementById('contactInput').value.trim();
+    const message = document.getElementById('messageInput').value.trim();
 
-    if (!sub || !target || !contact) {
-      showToast('⚠️ Semua field harus diisi!');
+    if (!sub) {
+      showToast('⚠️ Nama subdomain harus diisi!', 'warn');
+      document.getElementById('subInput').focus();
+      return;
+    }
+    if (!contact) {
+      showToast('⚠️ Kontak harus diisi!', 'warn');
+      document.getElementById('contactInput').focus();
+      return;
+    }
+    if (!message) {
+      showToast('⚠️ Pesan / keterangan harus diisi!', 'warn');
+      document.getElementById('messageInput').focus();
       return;
     }
 
-    const btn = document.querySelector('.btn-submit');
-    btn.textContent = 'Mengirim...';
+    const btn = document.getElementById('submitBtn');
+    btn.classList.add('loading');
     btn.disabled = true;
 
     const webhookURL = 'https://discord.com/api/webhooks/1479128237564104735/nH9UxoqNHQEATTpimmEKDPPtY0Dn-0Sc0yAjiyFQl3aLnyUnY-BGdQB2hYOWc7XFa1c9';
@@ -806,11 +1077,11 @@
     const payload = {
       embeds: [{
         title: '🚀 Request Subdomain Baru!',
-        color: 0x7bffc4,
+        color: 0x6effc2,
         fields: [
           { name: '🌐 Subdomain', value: '`' + sub + '.kraxx.my.id`', inline: true },
-          { name: '🎯 Arahkan ke', value: '`' + target + '`', inline: true },
-          { name: '📱 Kontak', value: '`' + contact + '`', inline: false },
+          { name: '📱 Kontak', value: '`' + contact + '`', inline: true },
+          { name: '💬 Pesan', value: message, inline: false },
         ],
         footer: { text: 'kraxx.my.id — Subdomain Request' },
         timestamp: new Date().toISOString()
@@ -827,23 +1098,20 @@
       if (res.ok) {
         closeModal();
         document.getElementById('subInput').value = '';
-        document.getElementById('targetInput').value = '';
         document.getElementById('contactInput').value = '';
-        setTimeout(() => showToast('✅ Request "' + sub + '.kraxx.my.id" terkirim!'), 300);
+        document.getElementById('messageInput').value = '';
+        setTimeout(() => showToast('✅ Request "' + sub + '.kraxx.my.id" terkirim!', 'success'), 300);
       } else {
-        showToast('❌ Gagal kirim, coba lagi!');
+        showToast('❌ Gagal kirim, coba lagi!', 'error');
       }
-    } catch (e) {
-      showToast('❌ Gagal kirim, cek koneksi!');
+    } catch {
+      showToast('❌ Gagal kirim, cek koneksi!', 'error');
     }
 
-    btn.textContent = 'Kirim Request ✦';
+    btn.classList.remove('loading');
     btn.disabled = false;
   }
 </script>
 
 </body>
 </html>
-
-
-
